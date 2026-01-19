@@ -18,7 +18,7 @@ sudo docker run -it --rm \
     taxi_ingest:v001 \
         --pg-user=root \
         --pg-pass=root \
-        --pg-host=localhost \
+        --pg-host=pgdatabase \
         --pg-port=5432 \
         --pg-db=ny_taxi \
         --target-table=yellow_taxi_trips_2 \
@@ -31,13 +31,13 @@ docker network create pg-network
 
 # Run PostgreSQL on the network
 sudo docker run -it --rm \
+  --network=pg-network \
+  --name pgdatabase \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
   -v ny_taxi_postgres_data:/var/lib/postgresql \
   -p 5432:5432 \
-  --network=pg-network \
-  --name pgdatabase \
   postgres:18
 
 # In another terminal, run pgAdmin on the same network
