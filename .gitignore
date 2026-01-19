@@ -1,7 +1,12 @@
 # Byte-compiled / optimized / DLL files
+*.parquet
 __pycache__/
 *.py[codz]
 *$py.class
+
+# Docker volumes and database files
+**/ny_taxi_postgres_data/
+.venv/
 
 # C extensions
 *.so
