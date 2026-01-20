@@ -86,7 +86,7 @@ def ingest(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, target_table,
     Ingest green taxi data from CloudFront to PostgreSQL.
     
     Example:
-        python ingest_green_data.py --pg_user root --pg_pass root \\
+        uv python ingest_green_data.py --pg_user root --pg_pass root \\
             --pg_host localhost --pg_port 5432 --pg_db ny_taxi \\
             --year 2025 --month 11 --target_table green_taxi_data --chunksize 10000
     """

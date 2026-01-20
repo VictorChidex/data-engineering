@@ -18,8 +18,12 @@ COPY "pyproject.toml" "uv.lock" ".python-version" ./
 RUN uv sync --locked
 
 # Copy application code
-COPY ingest_data.py .
+#COPY pipeline.py .
+#COPY ingest_data.py .
+COPY ingest_green_data.py .
+
+#ingest_data.py .
 
 # Set entry point to use click CLI
-ENTRYPOINT ["python", "ingest_data.py"]
+ENTRYPOINT ["python", "ingest_green_data.py"]
 CMD []
